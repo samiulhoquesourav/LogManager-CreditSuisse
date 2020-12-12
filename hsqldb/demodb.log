@@ -1,0 +1,13 @@
+/*C12*/SET SCHEMA PUBLIC
+CREATE TABLE if not exists log_tbl (  id varchar(128) NOT NULL, type VARCHAR(32), host varchar(32), duration INT, alert boolean, PRIMARY KEY (id))
+DELETE FROM LOG_TBL WHERE ID='scsmbstgra'
+DELETE FROM LOG_TBL WHERE ID='scsmbstgrb'
+DELETE FROM LOG_TBL WHERE ID='scsmbstgrc'
+COMMIT
+INSERT INTO LOG_TBL VALUES('scsmbstgra','APPLICATION_LOG','12345',5,TRUE)
+COMMIT
+INSERT INTO LOG_TBL VALUES('scsmbstgrc','null','null',8,TRUE)
+COMMIT
+INSERT INTO LOG_TBL VALUES('scsmbstgrb','null','null',3,FALSE)
+COMMIT
+DISCONNECT
